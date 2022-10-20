@@ -16,13 +16,15 @@
 
     <div id="map_canvas"></div>
     <script>
+      //以下は辞書形式
     function initMap() {
       var myOptions = {
-        zoom: 8,
-        center: {lat: 53.480759, lng: -2.242631},
+        zoom: 8, //キーがzoon、値は8
+        center: {lat: 53.480759, lng: -2.242631}, //緯度と経度
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         disableDefaultUI: true
       }
+      //さっきgoogleオブジェクトを読み込んでいるからここではすぐ使える。
       var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     }
     </script>
