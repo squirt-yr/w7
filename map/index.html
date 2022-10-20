@@ -16,19 +16,19 @@
 
     <div id="map_canvas"></div> <!-- map_canvasという名前をつけた。属性。 -->
     <script>
-      <! --以下は辞書形式 -->
+      <!--以下は辞書形式 -->
     function initMap() {
       var myOptions = {
         zoom: 8, //キーがzoon、値は8
-        center: {lat: 53.480759, lng: -2.242631},<!--  緯度と経度-->
+        center: {lat: 35, lng: 139},<!--  緯度と経度 {lat: 53.480759, lng: -2.242631}-->
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         disableDefaultUI: true
       }
-      <! --さっきgoogleオブジェクトを読み込んでいるからここではすぐ使える。-->
+      <!--さっきgoogleオブジェクトを読み込んでいるからここではすぐ使える。-->
       var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     }
     </script>
-    <! --以下をAPIのリンクに変更 -->
+    <!--以下をAPIのリンクに変更 -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiV2ZbFIYuD3N4hzGLstSn2e4ZG5A7QlU=initMap"
     async defer></script>
   </body>
