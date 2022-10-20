@@ -14,9 +14,9 @@
   <body>
     <h1>Simple maps example</h1>
 
-    <div id="map_canvas"></div>
+    <div id="map_canvas"></div> <!-- map_canvasという名前をつけた。属性。 -->
     <script>
-      //以下は辞書形式
+      <! --以下は辞書形式 -->
     function initMap() {
       var myOptions = {
         zoom: 8, //キーがzoon、値は8
@@ -24,7 +24,7 @@
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         disableDefaultUI: true
       }
-      //さっきgoogleオブジェクトを読み込んでいるからここではすぐ使える。
+      <! --さっきgoogleオブジェクトを読み込んでいるからここではすぐ使える。-->
       var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     }
     </script>
