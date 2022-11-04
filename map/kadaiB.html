@@ -15,6 +15,7 @@
     <h1>Simple maps example</h1>
 
     <div id="map_canvas"></div>
+    
     <script>
     function initMap() {
       var myOptions = {
@@ -51,8 +52,61 @@
         infowindow.open(map, marker);
       });
     }
+      
+    function setCookie(cname,cvalue,exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires=" + d.toGMTString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    function checkCookie() {
+      var user=getCookie("2022web");
+      <!-- var user=getCookie("username"); -->
+      console.log(user);
+      if (user != "" ) {
+        alert("また見てくれてありがとう！" + user);
+      } else {
+        user = prompt("名前を教えてください:","");
+        if (user != "" && user != null) {
+          setCookie("2022web", user, 30);
+          <!-- setCookie("username", user, 30); -->
+        }
+      }
+    }
+
+
+    function delCookie()
+    {
+      document.cookie = "2022web=; max-age=0; path=/";
+      <!-- document.cookie = "username=; max-age=0; path=/"; -->
+    }
+      
     </script>
+    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiV2ZbFIYuD3N4hzGLstSn2e4ZG5A7QlU&callback=initMap"
     async defer></script>
+    
+    <div style="background-color : #CCC;">
+      <input type="button" value="クッキー判定" onclick="checkCookie()">
+      <input type="button" value="クッキー削除" onclick="delCookie()">
+    </div>
+    
   </body>
 </html>
