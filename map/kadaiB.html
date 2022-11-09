@@ -13,6 +13,12 @@
   </head>
   <body>
     <h1>Simple maps example</h1>
+    
+    <p>
+    <div style="background-color : #CCC;">
+      <input type="button" value="最初に訪れた際にはこちらをクリック" onclick="doOnce()">
+    </div>
+    </p>
 
     <div id="map_canvas"></div>
     
@@ -58,8 +64,11 @@
       function doOnce()
       {
         if (document.cookie.replace(/(?:(?:^|.*;\s*)2022web\s*\=\s*([^;]*).*$)|^.*$/, "$1") !== "true") {
-          alert("ようこそ。名前を教えてください。");
-          document.cookie = "2022web=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+          //alert("ようこそ。名前を教えてください。");
+          //document.cookie = "2022web=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+          
+          user = prompt("ようこそ。名前を教えてください:","");
+          setCookie("2022web", user, 30);
       }
     }
       
@@ -112,6 +121,8 @@
       
     </script>
     
+    
+    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiV2ZbFIYuD3N4hzGLstSn2e4ZG5A7QlU&callback=initMap"
     async defer></script>
     
@@ -121,12 +132,7 @@
       <input type="button" value="クッキー削除" onclick="delCookie()">
     </div>
     </p>
-  
-  <p>
-    <div style="background-color : #CCC;">
-      <input type="button" value="doOnce" onclick="doOnce()">
-    </div>
-    </p>
+ 
     
   </body>
 </html>
